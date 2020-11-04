@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-filmsvoter-dev-145520-authRole",
+      "UnauthRoleArn": "arn:aws:iam::888619341941:role/amplify-filmsvoter-dev-145520-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::888619341941:role/amplify-filmsvoter-dev-145520-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-filmsvoter-dev-145520-deployment",
+      "UnauthRoleName": "amplify-filmsvoter-dev-145520-unauthRole",
+      "StackName": "amplify-filmsvoter-dev-145520",
+      "StackId": "arn:aws:cloudformation:eu-west-2:888619341941:stack/amplify-filmsvoter-dev-145520/c3d035f0-1ead-11eb-b7b8-0a1f0a72e14c",
+      "AmplifyAppId": "d2u95bcucizt5t"
+    }
+  }
+}
