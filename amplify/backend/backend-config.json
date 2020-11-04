@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "filmsvoterbbe0b395": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

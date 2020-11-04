@@ -10,6 +10,11 @@
       "StackName": "amplify-filmsvoter-dev-145520",
       "StackId": "arn:aws:cloudformation:eu-west-2:888619341941:stack/amplify-filmsvoter-dev-145520/c3d035f0-1ead-11eb-b7b8-0a1f0a72e14c",
       "AmplifyAppId": "d2u95bcucizt5t"
+    },
+    "categories": {
+      "auth": {
+        "filmsvoterbbe0b395": {}
+      }
     }
   }
 }
