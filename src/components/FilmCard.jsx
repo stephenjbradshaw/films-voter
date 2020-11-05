@@ -1,5 +1,6 @@
 import React from "react";
 
+/** Returns a list element containing film information */
 const FilmCard = ({ film, addLike }) => {
   const { title, year, likes, description } = film;
 

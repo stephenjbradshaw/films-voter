@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import FilmCard from "./components/FilmCard";
 
-// TODO: Mock authentication. First test currently renders amplify authenticator
+/** @todo Mock authentication (first test currently renders amplify authenticator) */
 test("renders App without crashing", () => {
   render(<App />);
 });

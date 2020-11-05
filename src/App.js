@@ -13,10 +13,12 @@ Amplify.configure(awsconfig);
 const App = () => {
   const [films, setFilms] = useState([]);
 
+  /** Calls fetchFilms on first render */
   useEffect(() => {
     fetchFilms();
   }, []);
 
+  /** Fetches films from API and sets state */
   const fetchFilms = () => {
     API.graphql(graphqlOperation(listFilms))
       .then(({ data }) => {
@@ -28,6 +30,9 @@ const App = () => {
       });
   };
 
+  /** Adds a like to a film based on index, sets state using API response
+   *  @todo implement optimistic rendering
+   */
   const addLike = (i) => {
     const film = { ...films[i] };
     film.likes++;
@@ -43,6 +48,7 @@ const App = () => {
       });
   };
 
+  /** Generates a list of film cards */
   const filmCards = films.map((film, i) => {
     return <FilmCard film={film} addLike={() => addLike(i)} key={film.id} />;
   });
