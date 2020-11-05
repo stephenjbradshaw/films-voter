@@ -2,11 +2,15 @@
 
 A simple app where users can log in and vote for their favorite film. It is built using AWS Amplify's authentication and GraphQL API tools.
 
+## Hosted site
+
+- Can be viewed [here](https://dev.d2u95bcucizt5t.amplifyapp.com)
+
 ## Local installation steps
 
-– TBC
+- TBC
 
-## Getting Started
+## Once installed locally:
 
 - Run the app: `npm start`
 - Create an account using your email address

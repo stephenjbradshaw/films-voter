@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "filmsvoterbbe0b395": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2u95bcucizt5t",
+          "type": "manual"
+        }
       }
     }
   }
