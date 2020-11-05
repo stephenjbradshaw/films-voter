@@ -2,11 +2,11 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import awsconfig from "./aws-exports";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 import { listFilms } from "./graphql/queries";
 import { updateFilm } from "./graphql/mutations";
 
-import FilmCard from "./components/FilmCard";
+import { StyledHeader, StyledFilmCard } from "./components/styled/lib";
 
 Amplify.configure(awsconfig);
 
@@ -50,17 +50,17 @@ const App = () => {
 
   /** Generates a list of film cards */
   const filmCards = films.map((film, i) => {
-    return <FilmCard film={film} addLike={() => addLike(i)} key={film.id} />;
+    return (
+      <StyledFilmCard film={film} addLike={() => addLike(i)} key={film.id} />
+    );
   });
 
   return (
     <div className="App">
-      <header>
-        <h1>Films Voter</h1>
-        <AmplifySignOut />
-        <h2>A place to vote on your favorite films</h2>
-      </header>
+      <StyledHeader />
       <main>
+        <h2>A place to vote on your favourite films</h2>
+        <p>Films are ordered by number of votes</p>
         <ul>{filmCards}</ul>
       </main>
     </div>
