@@ -34,3 +34,33 @@ export const listFilms = /* GraphQL */ `
     }
   }
 `;
+export const getFilmsByLikes = /* GraphQL */ `
+  query GetFilmsByLikes(
+    $title: String
+    $likes: ModelIntKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelFilmFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getFilmsByLikes(
+      title: $title
+      likes: $likes
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        title
+        year
+        likes
+        description
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

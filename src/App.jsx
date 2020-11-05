@@ -18,7 +18,12 @@ const App = () => {
     fetchFilms();
   }, []);
 
-  /** Fetches films from API and sets state */
+  /** Fetches films from API and sets state
+   * @todo Implement sorting films by number of likes
+   * Have started trying an approach to this. See:
+   *  - amplify/backend/api/filmsvoter/schema.graphql
+   *  - generated getFilmsByLikes query in src/graphql/queries.js
+   * */
   const fetchFilms = () => {
     API.graphql(graphqlOperation(listFilms))
       .then(({ data }) => {
@@ -60,7 +65,6 @@ const App = () => {
       <StyledHeader />
       <main>
         <h2>A place to vote on your favourite films</h2>
-        <p>Films are ordered by number of votes</p>
         <ul>{filmCards}</ul>
       </main>
     </div>

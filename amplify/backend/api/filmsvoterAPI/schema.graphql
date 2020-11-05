@@ -1,7 +1,0 @@
-type Film @model {
-  id: ID!
-  title: String!
-  year: Int!
-  likes: Int!
-  description: String!
-}

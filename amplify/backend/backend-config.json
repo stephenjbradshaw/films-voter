@@ -8,7 +8,7 @@
     }
   },
   "api": {
-    "filmsvoterAPI": {
+    "filmsvoter": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {

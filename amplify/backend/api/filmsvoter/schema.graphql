@@ -1,0 +1,13 @@
+type Film
+  @model
+  @key(
+    name: "byLikes"
+    fields: ["title", "likes"]
+    queryField: "getFilmsByLikes"
+  ) {
+  id: ID!
+  title: String!
+  year: Int!
+  likes: Int!
+  description: String!
+}
