@@ -50,7 +50,9 @@ const App = () => {
   return (
     <div className="App">
       <header>
+        <h1>Films Voter</h1>
         <AmplifySignOut />
+        <h2>A place to vote on your favorite films</h2>
       </header>
       <main>
         <ul>{filmCards}</ul>
