@@ -4,6 +4,8 @@ import awsconfig from "./aws-exports";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 import { listFilms } from "./graphql/queries";
+import { updateFilm } from "./graphql/mutations";
+
 import FilmCard from "./components/FilmCard";
 
 Amplify.configure(awsconfig);
@@ -26,17 +28,32 @@ const App = () => {
       });
   };
 
+  const addLike = (i) => {
+    const film = { ...films[i] };
+    film.likes++;
+    const { createdAt, updatedAt, ...updatedFilm } = film;
+    API.graphql(graphqlOperation(updateFilm, { input: updatedFilm }))
+      .then((filmsData) => {
+        const filmsList = [...films];
+        filmsList[i] = filmsData.data.updateFilm;
+        setFilms(filmsList);
+      })
+      .catch((err) => {
+        console.log("error on adding like to film", err);
+      });
+  };
+
+  const filmCards = films.map((film, i) => {
+    return <FilmCard film={film} addLike={() => addLike(i)} key={film.id} />;
+  });
+
   return (
     <div className="App">
       <header>
         <AmplifySignOut />
       </header>
       <main>
-        <ul>
-          {films.map((film) => {
-            return FilmCard(film);
-          })}
-        </ul>
+        <ul>{filmCards}</ul>
       </main>
     </div>
   );

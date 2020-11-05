@@ -1,11 +1,13 @@
 import React from "react";
 
-const FilmCard = ({ id, title, year, likes, description }) => {
+const FilmCard = ({ film, addLike }) => {
+  const { title, year, likes, description } = film;
+
   return (
-    <li key={id}>
+    <li>
       <h3>{title}</h3>
       <p>{year}</p>
-      <p>{likes}</p>
+      <button onClick={() => addLike()}>{likes}</button>
       <p>{description}</p>
     </li>
   );
