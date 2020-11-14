@@ -11,7 +11,7 @@ const FilmCard = ({ film, className }) => {
   /** Adds a like to the film, renders optimistically */
   const addLike = () => {
     const newFilm = { ...film };
-    newFilm.likes++;
+    newFilm.likes = newFilm.likes + optimisticLikes + 1;
     const { createdAt, updatedAt, ...updatedFilm } = newFilm;
     API.graphql(graphqlOperation(updateFilm, { input: updatedFilm })).catch(
       (err) => {
