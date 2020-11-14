@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import awsconfig from "./aws-exports";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import { listFilms } from "./graphql/queries";
+import { filmsByLikes } from "./graphql/queries";
 
 import { StyledHeader, StyledFilmCard } from "./components/styled/lib";
 
@@ -12,21 +12,19 @@ Amplify.configure(awsconfig);
 const App = () => {
   const [films, setFilms] = useState([]);
 
-  /** Calls fetchFilms on first render */
+  /** Calls fetchFilmsByLikes on first render */
   useEffect(() => {
-    fetchFilms();
+    // fetchFilms();
+    fetchFilmsByLikes();
   }, []);
 
-  /** Fetches films from API and sets state
-   * @todo Implement sorting films by number of likes
-   * Have started trying an approach to this. See:
-   *  - amplify/backend/api/filmsvoter/schema.graphql
-   *  - generated getFilmsByLikes query in src/graphql/queries.js
-   * */
-  const fetchFilms = () => {
-    API.graphql(graphqlOperation(listFilms))
+  /** Fetches films ordered by likes descending */
+  const fetchFilmsByLikes = () => {
+    API.graphql(
+      graphqlOperation(filmsByLikes, { type: "film", sortDirection: "DESC" })
+    )
       .then(({ data }) => {
-        const filmsList = data.listFilms.items;
+        const filmsList = data.filmsByLikes.items;
         setFilms(filmsList);
       })
       .catch((err) => {

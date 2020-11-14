@@ -8,6 +8,7 @@ export const createFilm = /* GraphQL */ `
   ) {
     createFilm(input: $input, condition: $condition) {
       id
+      type
       title
       year
       likes
@@ -24,6 +25,7 @@ export const updateFilm = /* GraphQL */ `
   ) {
     updateFilm(input: $input, condition: $condition) {
       id
+      type
       title
       year
       likes
@@ -40,6 +42,7 @@ export const deleteFilm = /* GraphQL */ `
   ) {
     deleteFilm(input: $input, condition: $condition) {
       id
+      type
       title
       year
       likes
