@@ -5,6 +5,7 @@ export const onCreateFilm = /* GraphQL */ `
   subscription OnCreateFilm {
     onCreateFilm {
       id
+      type
       title
       year
       likes
@@ -18,6 +19,7 @@ export const onUpdateFilm = /* GraphQL */ `
   subscription OnUpdateFilm {
     onUpdateFilm {
       id
+      type
       title
       year
       likes
@@ -31,6 +33,7 @@ export const onDeleteFilm = /* GraphQL */ `
   subscription OnDeleteFilm {
     onDeleteFilm {
       id
+      type
       title
       year
       likes
