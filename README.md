@@ -6,13 +6,20 @@ A simple app where users can log in and vote for their favorite film. It is buil
 
 - Can be viewed [here](https://dev.d2u95bcucizt5t.amplifyapp.com)
 
+## Prerequisites
+
+- AWS account
+- AWS Amplify CLI, connected to your AWS account (instructions [here](https://docs.amplify.aws/cli/start/install))
+
 ## Local installation steps
 
-- TBC
+- In an empty directory, run `amplify init --app <url of this Github repo>`
+- Once the backend has been configured in the cloud, the front end react app will open in the browser
 
 ## Once installed locally:
 
-- Run the app: `npm start`
+- Add some sample data, e.g. via the [DynamoDB console](https://eu-west-2.console.aws.amazon.com/dynamodb/home?region=eu-west-2#tables:), following the schema defined at `amplify/backend/api/filmsvoter/schema.graphql`
+- Run the app if it is not already open: `npm start`
 - Create an account using your email address
 - Log in to view films and vote
 - To run tests: `npm test`
