@@ -5,6 +5,7 @@ export const getFilm = /* GraphQL */ `
   query GetFilm($id: ID!) {
     getFilm(id: $id) {
       id
+      type
       title
       year
       likes
@@ -23,6 +24,7 @@ export const listFilms = /* GraphQL */ `
     listFilms(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        type
         title
         year
         likes
@@ -34,17 +36,17 @@ export const listFilms = /* GraphQL */ `
     }
   }
 `;
-export const getFilmsByLikes = /* GraphQL */ `
-  query GetFilmsByLikes(
-    $title: String
+export const filmsByLikes = /* GraphQL */ `
+  query FilmsByLikes(
+    $type: String
     $likes: ModelIntKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelFilmFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    getFilmsByLikes(
-      title: $title
+    filmsByLikes(
+      type: $type
       likes: $likes
       sortDirection: $sortDirection
       filter: $filter
@@ -53,6 +55,7 @@ export const getFilmsByLikes = /* GraphQL */ `
     ) {
       items {
         id
+        type
         title
         year
         likes
